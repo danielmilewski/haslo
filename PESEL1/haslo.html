@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Miernik Jakosci Hasła</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div id="baner">
+			<h1><a href="index.html">Sprawdz swoje hasło</a><h1>
+		</div>
+		
+		<div id="panel-lewy">
+			<h2> Wybierz </h2>
+			<ol>
+				<li><a href="haslo.html">Sprawdz Hasło</a></li>
+				<li><a href="zasady.html">Zasady Tworzenia Hasła</a></li>
+				
+			</ol>
+		
+		</div>
+		
+		<div id="panel-prawy">
+			<p>Twoje Haslo</p>
+			<!-- w input musi byc id="haslo" zeby skryp JS mogl wylapac -->
+			<input id="haslo" type="password">
+			
+			<!-- onclick musi byc w button z funkcja JS, wtedy klikniecie uruchomi skrypt-->
+			<button onclick="sprawdzHaslo()">Sprawdz</button>
+			<!-- akapity <p></p> zawieraja id wynik gdzie ma funckje innerHtml i wypsze odpwiednie zdanie zalezne od wyniku funkcji, "wynik" zaweira tylko wynik funkcji-->
+			<p id="wynik"></p>
+		</div>
+		
+		<div id="stopka">
+			<h3>Miernik jakosci hasła</h3>
+			<p>Strone opracował: Moj numer pesel</p>
+		</div>
+		
+		<script>
+		
+		function sprawdzHaslo(){
+		
+				var haslo = document.getElementById("haslo").value; //zwraca wartosc wiec na koncu musi byc value
+				var wynik = document.getElementById("wynik"); //nie zwraca wartosci wiec nie potrzebuje na koniec value zeby przepisac, tylko wyswietla innerHTML
+				
+				//sprawdza czy jest puste, dobrze zawsze sprawdzic pierwszy warunek czy jest pusty
+				if(haslo == ""){
+					wynik.innerHTML = '<span style="color: red">Wpisz Hasło</span>'; //
+				}
+				//sprawdza czy ma wiecej niz 7 i liczbe
+				else if(haslo.length >=7 && sprwadzCyfre(haslo)){
+					wynik.innerHTML = '<span style="color: green">DOBRE</span>';
+
+				} 
+				//sprawdza czy ma wiecej niz 4 ale nie wiecej niz 6 oraz czy ma liczbe
+				else if(haslo.length >=4 && haslo.length <= 6 && sprwadzCyfre(haslo)) {
+					wynik.innerHTML = '<span style="color: blue">ŚREDNIE</span>';
+
+				} 	
+				// jesli nie spelni powyzej zadnych innych wypdakow to wyskakuje ten komunikat
+				else {
+					wynik.innerHTML = '<span style="color: yellow">SŁABE</span>';
+				}
+		
+		}
+		//funckja ktora sprawdza zawiera liczbne
+		function sprwadzCyfre(otrzymaneHaslo){
+			//tworzymy tablice  i dzielimy slowa na litery za pomoca funkcji wew JS .split
+			var tablica =  otrzymaneHaslo.split("");
+			// przepisujemy dlugosc tablicy do zmiennej dlugoscTablicy
+			var dlugoscTablicy = tablica.length;
+			// potrzebne jest nam sprawdzicz czy haslo spelnia warunek liczby, 
+			var czyJestCyfra = false;
+			var litera;
+			
+			for(var i = 0; i < dlugoscTablicy; i++){
+				
+				litera = tablica[i];
+				// isNAN jest to funkcja wew JS, ktora sprawdza czy dana zmienna nie jest liczba, jesli nie jest wynik jest true. 
+				// Warunek if sprawdza jesli zmienna litera nie jest liczba to wtedy wynik if jest TRUE
+				if(isNaN(litera) == false){
+				// Jesli warunek if jest TRUE to nada  zmiennej czyJestCyfra wartosc TRUE
+				czyJestCyfra = true			
+			
+				}	
+			
+				
+			}
+			// Funkcja sprwadzCyfre(otrzymaneHaslo) zwroci zmienna czyJestCyfra o wartosci TRUE albo FALSE zalezny od  w wynik pteli if bedzie TRUE albo FALSE
+			return czyJestCyfra;
+		}
+		</script>
+		
+	</body>
+</html>

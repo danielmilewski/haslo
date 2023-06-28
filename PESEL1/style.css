@@ -1,0 +1,105 @@
+
+/*  Pamietaj ze zawsze rob body i tagi h1 - h3  z margin:0, padding:0 border:0
+	oraz przy panelach lewych, prawych czy srodkowych rob float: left; a na stopce zawsze clear:both;
+*/
+body{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+h1, h2, h3{
+	margin:0;
+	padding:0;
+}
+
+#baner{
+	background-color: #829EB8;
+	height: 50px;
+	font-family: Arial;
+	text-align: center;
+	}
+#panel-lewy{
+	background-color: #B3C6D9;
+	height: 600px;
+	width: 25%;
+	float: left;
+}
+
+#panel-prawy{
+	background-color: #E0E9F1;
+	height: 600px;
+	width: 75%;
+	text-align:center;
+	float: left;
+}
+
+#stopka{
+	background-color: #828EB9;
+	font-family:Arial;
+	text-align: right;
+	clear:both;
+}
+/*  
+	margines zew to mragin 30px;
+	margines wew to padding: 10px;
+	obramowanie to border i moze miec grubosc jak np. 2px;
+	dashed to rodzaj linii obramowania
+	rodzaje linii:
+		1. solid - solidna kreska
+		2. dashed - dzielone kreski
+		3. dotted - kropeczki
+		4. double - podwojne solidna kreska
+		5.groove - pogrubione kolorem?
+		6.ridge - wypuklona
+		7.inset - text wpchniety w obramowanie?
+		8.outset - text wypcheniety w obramowanie?
+		
+	obramowanie moze tez zawierac kolor, czyli kolor obramowania;
+*/
+img{
+	margin: 30px;
+	padding: 10px;
+	border: 2px dashed #B3C6D9;
+}
+
+/*  
+	margines zew  tablicy  to margin: 30px;
+	obran 
+*/
+table{
+	margin: 30px;
+	border: 2px solid black;
+	width: 70%;
+	
+}
+/*  
+	najezdzajac na myszka w wiers tablicy, wiersze zmieniaja kolor tal na niebieski a napisu na bialo
+*/
+tr:hover{
+	background-color:blue;
+	color: white;
+
+}
+
+/*  
+tło tytulowej kolumny jest nadday oraz border czyli granice. 
+*/
+th{
+		background-color: #B3C6D9;
+		border: 2px solid;
+}
+
+/*  
+ tutaj ustalamy grubosc i rodzaj obramowania dla kolumn
+*/
+td{
+		border: 2px solid;
+}
+/*  
+ tutaj ustalamy grubosc marginesow zewnetrznych dla akapitow
+*/	
+p{
+	margin: 30px;
+}
+
